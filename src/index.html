@@ -1,0 +1,52 @@
+<!doctype html>
+<html ng-app="app">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Portfolio - Index</title>
+</head>
+
+<body ng-controller="appCtrl">
+
+    <header>
+        <div class="text-center">
+            <h1 class="display-1 title animated flipInX"><span class="light-letter">D</span>ianophe
+                <div class="subtitle"><span class="light-letter">P</span>ortfolio</div>
+            </h1>
+            <h2 class="display-2"></h2>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="jumbotron jumbotron-fluid no-color">
+            <div class="container">
+                <h1 class="display-3">Skills</h1>
+                <p class="lead">Jumbo helper text</p>
+                <hr class="my-2">
+                <canvas id="pie" class="chart chart-pie" chart-data="data" chart-options="options" chart-labels="labels">
+              </canvas>
+            </div>
+
+            <hr/>
+
+            <div class="row text-center list mt-4 list animated fadeIn">
+                <div class="col-lg-5 col-md-5 col-xs-6" ng-repeat="elem in list" ng-if="elem.type == 'img'">
+                    <h3 class="display-4">{{ elem.nom }}</h3>
+                    <div href="#" class="embed-responsive embed-responsive-16by9">
+                        <img ng-src="{{ loadImage(elem.src) | trusted }}" class="embed-responsive-item" alt="{{ elem.nom }}">
+                    </div>
+                </div>
+
+                <div class="col-lg-5 col-md-5 col-xs-6" ng-repeat="elem in list" ng-if="elem.type == 'iframe'">
+                    <h3 class="display-4">{{ elem.nom }}</h3>
+                    <div href="#" class="embed-responsive embed-responsive-16by9">
+                        <iframe ng-src="{{ elem.src | trusted }}" scrolling="yes" class="embed-responsive-item">
+            </div>
+        </div>
+    </div>
+
+    <script src="./bundle.js"></script>
+</body>
+
+</html>

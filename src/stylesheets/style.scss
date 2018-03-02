@@ -1,0 +1,89 @@
+@import "~bootstrap/scss/bootstrap";
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+@import url('https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i');
+//
+// TABLE OF CONTENTS
+//
+
+/*
+* 1 - Body and General style
+* 2 - Components style
+*
+* 3 - Animations
+*/
+
+// Body and General style
+// COLORS //
+$title: #6b6b6b;
+$linearBg: linear-gradient(to right,
+#ece9e6,
+#ffffff);
+$headerBg: rgba(0,
+0,
+0,
+.01);
+//
+//
+body {
+    font-family: 'Lato', sans-serif;
+    font-size: .8rem;
+    background: $linearBg;
+    overflow-x: hidden;
+    margin-bottom: 3rem;
+    .no-color {
+        background-color: transparent;
+    }
+    header {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        background-color: $headerBg;
+        .title {
+            transform: translate3d(0, 0, 0);
+            -webkit-font-smoothing: antialised;
+            animation: 10s infinite zoomOut-light;
+            font-weight: 200;
+            color: $title;
+            text-align: center;
+            .light-letter {
+                font-weight: 300;
+            }
+        }
+        .subtitle {
+            font-size: 2rem;
+            margin-top: -1rem;
+        }
+    }
+    .list {
+        justify-content: center;
+        .embed-responsive-16by9 {
+            transform: translate3d(0, 0, 0);
+            -webkit-font-smoothing: antialised;
+            transition: all 130ms ease-in;
+            &:hover {
+                transform: scale(1.05);
+            }
+            iframe {
+                width: 103% !important;
+                overflow: auto;
+            }
+        }
+    }
+}
+
+//
+// Animations
+//
+@keyframes zoomOut-light {
+    0% {
+        transform: perspective(1px) scale(1);
+    }
+    50% {
+        transform: perspective(1px) scale(.9);
+    }
+    100% {
+        transform: perspective(1px) scale(1);
+    }
+}
