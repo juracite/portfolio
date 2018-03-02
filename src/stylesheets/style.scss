@@ -35,6 +35,15 @@ body {
     .no-color {
         background-color: transparent;
     }
+    .light-letter {
+        font-weight: 300;
+    }
+    .canvasjs-chart-container a {
+        display: none;
+    }
+    .jumbotron .display-3 {
+        font-weight: 200;
+    }
     header {
         position: sticky;
         top: 0;
@@ -47,9 +56,6 @@ body {
             font-weight: 200;
             color: $title;
             text-align: center;
-            .light-letter {
-                font-weight: 300;
-            }
         }
         .subtitle {
             font-size: 2rem;
@@ -57,6 +63,9 @@ body {
         }
     }
     .list {
+        .display-4 {
+            font-weight: 200;
+        }
         justify-content: center;
         .embed-responsive-16by9 {
             transform: translate3d(0, 0, 0);

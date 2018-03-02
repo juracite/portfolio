@@ -21,32 +21,32 @@
     <div class="container">
         <div class="jumbotron jumbotron-fluid no-color">
             <div class="container">
-                <h1 class="display-3">Skills</h1>
-                <p class="lead">Jumbo helper text</p>
+                <h1 class="display-3"><span class="light-letter">C</span>ompétences</h1>
                 <hr class="my-2">
-                <canvas id="pie" class="chart chart-pie" chart-data="data" chart-options="options" chart-labels="labels">
-              </canvas>
-            </div>
+                <div id="chartContainer" style="height: 300px; width: 100%;"></div>
 
-            <hr/>
-
-            <div class="row text-center list mt-4 list animated fadeIn">
-                <div class="col-lg-5 col-md-5 col-xs-6" ng-repeat="elem in list" ng-if="elem.type == 'img'">
-                    <h3 class="display-4">{{ elem.nom }}</h3>
-                    <div href="#" class="embed-responsive embed-responsive-16by9">
-                        <img ng-src="{{ loadImage(elem.src) | trusted }}" class="embed-responsive-item" alt="{{ elem.nom }}">
-                    </div>
-                </div>
-
-                <div class="col-lg-5 col-md-5 col-xs-6" ng-repeat="elem in list" ng-if="elem.type == 'iframe'">
-                    <h3 class="display-4">{{ elem.nom }}</h3>
-                    <div href="#" class="embed-responsive embed-responsive-16by9">
-                        <iframe ng-src="{{ elem.src | trusted }}" scrolling="yes" class="embed-responsive-item">
             </div>
         </div>
     </div>
 
-    <script src="./bundle.js"></script>
+    <hr/>
+
+    <div class="row text-center list mt-4 list animated fadeIn">
+        <div class="col-lg-5 col-md-5 col-xs-6" ng-repeat="elem in list" ng-if="elem.type == 'img'">
+            <h3 class="display-4"><span class="light-letter">{{ elem.letter }}</span>{{ elem.nom }}</h3>
+            <div href="#" class="embed-responsive embed-responsive-16by9">
+                <img ng-src="{{ loadImage(elem.src) | trusted }}" class="embed-responsive-item" alt="{{ elem.nom }}">
+            </div>
+        </div>
+
+        <div class="col-lg-5 col-md-5 col-xs-6" ng-repeat="elem in list" ng-if="elem.type == 'iframe'">
+            <h3 class="display-4"><span class="light-letter">{{ elem.letter }}</span>{{ elem.nom }}</h3>
+            <div href="#" class="embed-responsive embed-responsive-16by9">
+                <iframe ng-src="{{ elem.src | trusted }}" scrolling="yes" class="embed-responsive-item">
+            </div>
+        </div>
+    </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/canvasjs/1.7.0/canvasjs.min.js"></script>
 </body>
 
 </html>

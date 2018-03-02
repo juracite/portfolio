@@ -1,14 +1,4 @@
-let app = angular.module('app', ['chart.js']);
-
-app.config(['ChartJsProvider', function(ChartJsProvider) {
-    // Configure all charts
-    ChartJsProvider.setOptions({
-        responsive: true,
-        legend: {
-            display: true,
-        }
-    });
-}]);
+let app = angular.module('app', []);
 
 app.controller('appCtrl', ['$scope', '$timeout', ($scope, $timeout) => {
     $scope.loadImage = function(image) {
@@ -16,22 +6,18 @@ app.controller('appCtrl', ['$scope', '$timeout', ($scope, $timeout) => {
     };
 
     $scope.list = [{
-            nom: "VitaMaps",
+            letter: "V",
+            nom: "itaMaps",
             src: "vitamaps-thumbnails.png",
             type: "img"
         },
         {
-            nom: "DiscTube",
+            letter: "D",
+            nom: "isctube",
             src: "http://dianophe.fr",
             type: "iframe"
         }
     ]
-
-    $scope.labels = ["HTML", "CSS", "PHP", "Angular", "ASP.NET", "ASM", "C#"];
-
-    $scope.data = [
-        [90, 70, 50, 55, 10, 40, 80],
-    ];
 }]);
 
 app.filter('trusted', ['$sce', function($sce) {
@@ -39,3 +25,28 @@ app.filter('trusted', ['$sce', function($sce) {
         return $sce.trustAsResourceUrl(url);
     };
 }]);
+
+window.onload = function() {
+    var chart = new CanvasJS.Chart("chartContainer", {
+        backgroundColor: "transparent",
+        legend: {
+            maxWidth: 400,
+            itemWidth: 150
+        },
+        data: [{
+            type: "pie",
+            showInLegend: true,
+            legendText: "{indexLabel}",
+            dataPoints: [
+                { y: 90, indexLabel: "HTML" },
+                { y: 70, indexLabel: "CSS" },
+                { y: 50, indexLabel: "PHP" },
+                { y: 55, indexLabel: "Angular" },
+                { y: 10, indexLabel: "ASP.NET" },
+                { y: 40, indexLabel: "ASM" },
+                { y: 80, indexLabel: "C#" }
+            ]
+        }]
+    });
+    chart.render();
+}
