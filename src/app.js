@@ -1,4 +1,7 @@
-let app = angular.module('app', []);
+import tour from './tour.html';
+
+let app = angular.module('app', ['ngSanitize']);
+app.component('tour', { template: tour });
 
 app.controller('appCtrl', ['$scope', '$timeout', ($scope, $timeout) => {
     $scope.loadImage = function(image) {
@@ -24,6 +27,35 @@ app.controller('appCtrl', ['$scope', '$timeout', ($scope, $timeout) => {
             type: "iframe"
         }
     ]
+
+    let fadeIn = (element) => {
+        angular.element(element).fadeIn();
+    }
+
+    $scope.begin = () => {
+
+        angular.element('.loader').fadeOut(1000);
+
+        $timeout(function() {
+            angular.element('tour').fadeIn(2000);
+        }, 1500);
+    };
+    $scope.next = (i) => {
+        let current = i - 1;
+
+        console.log('eleme-' + current);
+        angular.element('.elem-' + current).fadeOut(1000, () => {
+            angular.element('.elem-' + i).fadeIn(2000);
+        });
+    };
+
+    $scope.end = () => {
+        angular.element('tour').fadeOut(1000);
+
+        $timeout(function() {
+            angular.element('.loader').fadeIn(2000);
+        }, 1500);
+    };
 }]);
 
 app.filter('trusted', ['$sce', function($sce) {

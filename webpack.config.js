@@ -61,13 +61,15 @@ module.exports = {
             }
         ]
     },
-    devtool: 'source-map',
-    stats: {
-        warnings: false
+    resolve: {},
+    devServer: {
+        historyApiFallback: true,
+        noInfo: true
     },
     performance: {
         hints: false
     },
+    devtool: '#eval-source-map',
     plugins: [
         new HtmlWebPackPlugin({
             template: "./src/index.html",

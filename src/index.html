@@ -8,14 +8,32 @@
 </head>
 
 <body ng-controller="appCtrl" class="animated fadeIn">
+    <header>
+        <div class="text-center">
+            <h1 class="display-1 title animated flipInX"><span class="light-letter">D</span>ianophe
+                <div class="subtitle"><span class="light-letter">P</span>ortfolio</div>
+            </h1>
+        </div>
+    </header>
+    <tour></tour>
     <div class="loader">
-        <header>
-            <div class="text-center">
-                <h1 class="display-1 title animated flipInX"><span class="light-letter">D</span>ianophe
-                    <div class="subtitle"><span class="light-letter">P</span>ortfolio</div>
-                </h1>
+
+
+        <div class="container">
+            <div class="jumbotron jumbotron-fluid no-color presentation">
+                <div class="container">
+                    <h1 class="display-3"><span class="light-letter">P</span>résentation</h1>
+                    <hr class="my-2">
+                    <p>Salut à toi, je te souhaite la bienvenue sur mon portfolio "Dianophe", ce pseudo me représente IG, je n'ai aucune idée d'où vient ce choix là :) je l'ai choisis par hasard à vrai dire.</p>
+                    <p>Je m'appelle Yann, je suis depuis assez longtemps maintenant intéressé par les diverses techonologies qui peuplent le monde du WEB, mais aussi et surtout le monde du Reverse-Engineering (Rétro-Ingénierie).</p>
+                    <p>Un petit tour d'horizon sur des choses que j'ai envie de te montrer ça te dis ? Et bien c'est parti, tu as juste à appuyer sur le bouton en dessous !</p>
+
+                    <button type="button" class="btn btn-primary btn-lg info" ng-click="begin()">Lancer</button>
+                </div>
             </div>
-        </header>
+        </div>
+
+        <hr/>
 
         <div class="container">
             <div class="jumbotron jumbotron-fluid no-color">
