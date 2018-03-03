@@ -168,7 +168,7 @@ tour {
     p {
         font-size: 1rem;
     }
-    div[class^="elem-"] {
+    div[class*="elem-"] {
         display: none;
     }
 }

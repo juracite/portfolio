@@ -37,9 +37,12 @@ app.controller('appCtrl', ['$scope', '$timeout', ($scope, $timeout) => {
         angular.element('.loader').fadeOut(1000);
 
         $timeout(function() {
-            angular.element('tour').fadeIn(2000);
+            angular.element('tour').fadeIn(1000, () => {
+                angular.element('.elem-1').fadeIn(500);
+            });
         }, 1500);
     };
+
     $scope.next = (i) => {
         let current = i - 1;
 
@@ -51,6 +54,7 @@ app.controller('appCtrl', ['$scope', '$timeout', ($scope, $timeout) => {
 
     $scope.end = () => {
         angular.element('tour').fadeOut(1000);
+        angular.element('.tour').fadeOut(50);
 
         $timeout(function() {
             angular.element('.loader').fadeIn(2000);
