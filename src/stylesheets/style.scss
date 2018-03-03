@@ -27,7 +27,17 @@ $headerBg: rgba(0,
 //
 //
 body {
-    font-family: 'Lato', sans-serif;
+    .light {
+        font-weight: 200;
+        color: #6b6b6b;
+    }
+    .loader {
+        width: 100%;
+        height: 100%;
+        background: $linearBg;
+    }
+    font-family: 'Lato',
+    sans-serif;
     font-size: .8rem;
     background: $linearBg;
     overflow-x: hidden;
@@ -43,11 +53,9 @@ body {
     }
     .jumbotron .display-3 {
         font-weight: 200;
+        color: #6b6b6b;
     }
     header {
-        position: sticky;
-        top: 0;
-        z-index: 1000;
         background-color: $headerBg;
         .title {
             transform: translate3d(0, 0, 0);
@@ -63,20 +71,29 @@ body {
         }
     }
     .list {
+        .element {
+            opacity: 0;
+            margin-bottom: 5rem;
+        }
         .display-4 {
             font-weight: 200;
+            color: #6b6b6b;
         }
         justify-content: center;
         .embed-responsive-16by9 {
             transform: translate3d(0, 0, 0);
             -webkit-font-smoothing: antialised;
             transition: all 130ms ease-in;
+            box-shadow: 11px 11px 53px -10px rgba(0, 0, 0, 0.65);
             &:hover {
                 transform: scale(1.05);
             }
             iframe {
-                width: 103% !important;
+                width: 104% !important;
                 overflow: auto;
+                html {
+                    cursor: pointer;
+                }
             }
         }
     }

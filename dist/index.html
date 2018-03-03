@@ -1,1 +1,45 @@
-<!DOCTYPE html> <html ng-app=app> <head> <meta charset=utf-8> <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"> <title>Portfolio - Index</title> </head> <body ng-controller=appCtrl> <header> <div class=text-center> <h1 class="display-1 title animated flipInX"><span class=light-letter>D</span>ianophe <div class=subtitle><span class=light-letter>P</span>ortfolio</div> </h1> <h2 class=display-2></h2> </div> </header> <div class=container> <div class="jumbotron jumbotron-fluid no-color"> <div class=container> <h1 class=display-3>Compétences</h1> <p class=lead>L'experience acquise professionnellement et personnellement</p> <hr class=my-2> <nvd3 options=options data=data></nvd3> </div> </div> </div> <hr/> <div class="row text-center list mt-4 list animated fadeIn"> <div class="col-lg-5 col-md-5 col-xs-6" ng-repeat="elem in list" ng-if="elem.type == 'img'"> <h3 class=display-4>{{ elem.nom }}</h3> <div href=# class="embed-responsive embed-responsive-16by9"> <img ng-src="{{ loadImage(elem.src) | trusted }}" class=embed-responsive-item alt="{{ elem.nom }}"> </div> </div> <div class="col-lg-5 col-md-5 col-xs-6" ng-repeat="elem in list" ng-if="elem.type == 'iframe'"> <h3 class=display-4>{{ elem.nom }}</h3> <div href=# class="embed-responsive embed-responsive-16by9"> <iframe ng-src="{{ elem.src | trusted }}" scrolling=yes class=embed-responsive-item> </iframe></div> </div> </div> <script type="text/javascript" src="main.js"></script></body> </html>
+<!DOCTYPE html>
+<html ng-app=app>
+
+<head>
+    <meta charset=utf-8>
+    <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>Portfolio - Index</title>
+    <script type="text/javascript" src="main.js"></script>
+</head>
+
+<body ng-controller=appCtrl class="animated fadeIn">
+    <div class=loader>
+        <header>
+            <div class=text-center>
+                <h1 class="display-1 title animated flipInX"><span class=light-letter>D</span>ianophe
+                    <div class=subtitle><span class=light-letter>P</span>ortfolio</div>
+                </h1>
+                <h2 class=display-2></h2>
+            </div>
+        </header>
+        <div class=container>
+            <div class="jumbotron jumbotron-fluid no-color">
+                <div class=container>
+                    <h1 class=display-3><span class=light-letter>E</span>xpérience</h1>
+                    <hr class=my-2>
+                    <div id=chartContainer style=height:300px;width:100%></div>
+                </div>
+            </div>
+        </div>
+        <hr/>
+        <div class="row text-center list mt-4 list animated fadeIn">
+            <div class="col-lg-5 col-md-5 col-xs-6" ng-repeat="elem in list" ng-if="elem.type == 'img'">
+                <h3 class=display-4><span class=light-letter>{{ elem.letter }}</span>{{ elem.nom }}</h3>
+                <div href=# class="embed-responsive embed-responsive-16by9"> <img ng-src="{{ loadImage(elem.src) | trusted }}" class=embed-responsive-item alt="{{ elem.nom }}"> </div>
+            </div>
+            <div class="col-lg-5 col-md-5 col-xs-6" ng-repeat="elem in list" ng-if="elem.type == 'iframe'">
+                <h3 class=display-4><span class=light-letter>{{ elem.letter }}</span>{{ elem.nom }}</h3>
+                <div href=# class="embed-responsive embed-responsive-16by9"> <iframe ng-src="{{ elem.src | trusted }}" scrolling=yes class=embed-responsive-item> </iframe></div>
+            </div>
+        </div>
+        <script src=https://cdnjs.cloudflare.com/ajax/libs/canvasjs/1.7.0/canvasjs.min.js></script>
+    </div>
+</body>
+
+</html>

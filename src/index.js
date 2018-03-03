@@ -1,8 +1,7 @@
 import $ from 'jquery';
-
-import 'bootstrap';
 import 'angular';
+import './app';
+import 'bootstrap';
+
 import './stylesheets/style.scss';
 import 'animate.css/animate.min.css';
-
-import './app';

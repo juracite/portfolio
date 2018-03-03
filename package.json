@@ -6,8 +6,8 @@
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "build": "webpack --progress",
-        "start": "webpack-dev-server -d --hot --config webpack.config.js --watch",
-        "production": "NODE_ENV=production webpack -p"
+        "start": "webpack-dev-server -d --mode development --content-base src --hot --inline --open",
+        "prod": "webpack-dev-server --mode production --content-base src --port 80"
     },
     "keywords": [],
     "author": "",
@@ -19,6 +19,7 @@
         "babel-preset-env": "^1.6.1",
         "css-loader": "^0.28.10",
         "exports-loader": "^0.7.0",
+        "express": "^4.16.2",
         "extract-text-webpack-plugin": "^4.0.0-beta.0",
         "file-loader": "^1.1.11",
         "html-loader": "^0.5.5",

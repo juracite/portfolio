@@ -1,4 +1,5 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
+const webpack = require('webpack');
 
 module.exports = {
     module: {
@@ -60,10 +61,22 @@ module.exports = {
             }
         ]
     },
+    devtool: 'source-map',
+    stats: {
+        warnings: false
+    },
+    performance: {
+        hints: false
+    },
     plugins: [
         new HtmlWebPackPlugin({
             template: "./src/index.html",
-            filename: "./index.html"
+            inject: 'head'
+        }),
+        new webpack.ProvidePlugin({
+            $: "jquery",
+            jQuery: "jquery",
+            "window.jQuery": "jquery"
         })
     ]
 };
